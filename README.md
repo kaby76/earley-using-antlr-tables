@@ -3,9 +3,8 @@
 This repo contains two implementations of [Earley parsing](https://en.wikipedia.org/wiki/Earley_parser).
 
 The first example, [csharp](https://github.com/kaby76/earley-using-antlr-tables/tree/main/csharp),
-is a straight-forward implementation of the algorithm pseudo-code at https://en.wikipedia.org/wiki/Earley_parser#Pseudocode.
-This implementation contains the methods Predictor(), Scanner(), and Completor(), and are
-called in code that mirrors the pseudo-code.
+is a straightforward implementation of the algorithm pseudo-code at https://en.wikipedia.org/wiki/Earley_parser#Pseudocode.
+This implementation contains the methods `Predictor()`, `Scanner()`, and `Completor()`, and they are called in code that mirrors the pseudo-code.
 
 The second example, [antlr](https://github.com/kaby76/earley-using-antlr-tables/tree/main/antlr), is a proof-of-concept
 implementation of Earley using the Antlr4 parser [ATNs](https://en.wikipedia.org/wiki/Augmented_transition_network).
