@@ -1,0 +1,29 @@
+digraph ATN {
+rankdir=LR;
+s5[fontsize=11, label="5", shape=doublecircle, fixedsize=true, width=.6];
+s32[fontsize=11,label="32*", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s4[fontsize=11,label="4", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s22[fontsize=11,label="22", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s23[fontsize=11,label="23", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s24[fontsize=11,label="24", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s25[fontsize=11,label="25", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s26[fontsize=11,label="26", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s27[fontsize=11,label="27", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s28[fontsize=11,label="&rarr;\n28*", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s29[fontsize=11,label="&larr;\n29", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s30[fontsize=11,label="{30*\nd=1|{<p0>|<p1>}}", shape=record, fixedsize=false, peripheries=1];
+s31[fontsize=11,label="31", shape=circle, fixedsize=true, width=.55, peripheries=1];
+s4 -> s22 [fontname="Times-Italic", label="&epsilon;"];
+s22 -> s23 [fontsize=11, fontname="Courier", arrowsize=.7, label = "action_2:-1", arrowhead = normal];
+s23 -> s24 [fontsize=11, fontname="Courier", arrowsize=.7, label = "<t>", arrowhead = normal];
+s24 -> s30 [fontname="Times-Italic", label="&epsilon;"];
+s30:p0 -> s28 [fontname="Times-Italic", label="&epsilon;"];
+s30:p1 -> s31 [fontname="Times-Italic", label="&epsilon;"];
+s28 -> s25 [fontname="Times-Italic", label="&epsilon;"];
+s31 -> s5 [fontname="Times-Italic", label="&epsilon;"];
+s25 -> s26 [fontsize=11, fontname="Courier", arrowsize=.7, label = "2 >= _p", arrowhead = normal];
+s26 -> s27 [fontsize=11, fontname="Courier", arrowsize=.7, label = "'*'", arrowhead = normal];
+s27 -> s29 [fontsize=11, fontname="Courier", arrowsize=.7, label = "<t>", arrowhead = normal];
+s29 -> s32 [fontname="Times-Italic", label="&epsilon;"];
+s32 -> s30 [fontname="Times-Italic", label="&epsilon;", style="dashed"];
+}

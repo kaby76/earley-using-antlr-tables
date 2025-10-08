@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Test": {
+      "commandName": "Project",
+      "commandLineArgs": "-tokens -input \"2+3*4\""
+    }
+  }
+}
