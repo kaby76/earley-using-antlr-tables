@@ -9,4 +9,5 @@ called in code that mirrors exactly the pseudo-code.
 
 The second example, [antlr](https://github.com/kaby76/earley-using-antlr-tables/tree/main/antlr), is a proof-of-concept
 Implementation of Earley using the Antlr4 parser [ATNs](https://en.wikipedia.org/wiki/Augmented_transition_network).
-There is an equivalence between a grammar and a collection of the Antlr4 ATNs.
+There is an equivalence between a grammar and a collection of the Antlr4 ATNs. In other words, it makes little sense to
+start with an Antlr4 grammar and not utilize the ATN representation.
