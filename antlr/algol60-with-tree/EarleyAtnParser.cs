@@ -32,8 +32,8 @@ namespace EarleyATN
 {
     public static class EarleyAtnRecognizer
     {
-	    static bool debug = false;
-	    
+        static bool debug = false;
+        
         // === Public APIs ===
 
         public static bool Parse(ATN atn, ITokenStream tokenStream, int startRuleIndex)
@@ -74,7 +74,7 @@ namespace EarleyATN
             // Standard Earley loop
             for (int k = 0; k < n; k++)
             {
-	        if (debug) System.Console.WriteLine("input " + k + " " + tokens[k]);
+                if (debug) System.Console.WriteLine("input " + k + " " + tokens[k]);
 
                 var next = chart[k + 1];
                 var a = tokens[k]; // next token type
@@ -149,14 +149,14 @@ namespace EarleyATN
                         var cont = new Item(follow, it.Origin, rest);
                         if (visited.Add(cont))
                         {
-			    if (debug) System.Console.WriteLine("comp " + cont + " from " + it);
+                            if (debug) System.Console.WriteLine("comp " + cont + " from " + it);
                             set.Add(cont);
                             work.Push(cont);
                             AddBack(backs, cont, Back.Complete(it, rssStop.ruleIndex));
                         }
                         else
                         {
-			    if (debug) System.Console.WriteLine("comp " + cont + " from " + it);
+                            if (debug) System.Console.WriteLine("comp " + cont + " from " + it);
                             if (!backs.ContainsKey(cont)) AddBack(backs, cont, Back.Complete(it, rssStop.ruleIndex));
                         }
                     }
@@ -173,14 +173,14 @@ namespace EarleyATN
                             var enter = new Item(rt.target, it.Origin, pushed);
                             if (visited.Add(enter))
                             {
-				if (debug) System.Console.WriteLine("pred " + enter + " from " + it);
+                                if (debug) System.Console.WriteLine("pred " + enter + " from " + it);
                                 set.Add(enter);
                                 work.Push(enter);
                                 AddBack(backs, enter, Back.Predict(it, rt.ruleIndex));
                             }
                             else
                             {
-				if (debug) System.Console.WriteLine("pred " + enter + " from " + it);
+                                if (debug) System.Console.WriteLine("pred " + enter + " from " + it);
                                 if (!backs.ContainsKey(enter)) AddBack(backs, enter, Back.Predict(it, rt.ruleIndex));
                             }
                             break;
@@ -193,14 +193,14 @@ namespace EarleyATN
                             var adv = new Item(tr.target, it.Origin, it.CallStack);
                             if (visited.Add(adv))
                             {
-				if (debug) System.Console.WriteLine("eps " + adv + " from " + it);
+                                if (debug) System.Console.WriteLine("eps " + adv + " from " + it);
                                 set.Add(adv);
                                 work.Push(adv);
                                 AddBack(backs, adv, Back.Epsilon(it));
                             }
                             else
                             {
-				if (debug) System.Console.WriteLine("eps " + adv + " from " + it);
+                                if (debug) System.Console.WriteLine("eps " + adv + " from " + it);
                                 if (!backs.ContainsKey(adv)) AddBack(backs, adv, Back.Epsilon(it));
                             }
                             break;
@@ -325,7 +325,7 @@ namespace EarleyATN
 
         private static bool TerminalMatches(Transition t, IToken tokenType)
         {
-	    var tt = tokenType.Type;
+            var tt = tokenType.Type;
             switch (t)
             {
                 case AtomTransition atom:
@@ -333,8 +333,8 @@ namespace EarleyATN
                 case NotSetTransition notset:
                     return notset.Label != null && !notset.Label.Contains(tt)
                            && tt != TokenConstants.EOF;
-		case SetTransition set:
-			return set.Label != null && set.Label.Contains(tt);
+                case SetTransition set:
+                    return set.Label != null && set.Label.Contains(tt);
                 case WildcardTransition _:
                     return tt != TokenConstants.EOF;
                 default:
@@ -352,20 +352,20 @@ namespace EarleyATN
                 var t = ((CommonTokenStream)stream).LT(1);
                 list.Add(t);
                 if (t.Type == TokenConstants.EOF) break;
-		stream.Consume();
+                stream.Consume();
             }
             stream.Seek(marker);
             return list;
         }
 
-	private static Transition[] TransitionsArray(this ATNState s)
-	{
-		var n = s.NumberOfTransitions;
-		if (n == 0) return Array.Empty<Transition>();
-		var arr = new Transition[n];
-		for (int i = 0; i < n; i++) arr[i] = s.Transition(i);
-		return arr;
-	}
+        private static Transition[] TransitionsArray(this ATNState s)
+        {
+            var n = s.NumberOfTransitions;
+            if (n == 0) return Array.Empty<Transition>();
+            var arr = new Transition[n];
+            for (int i = 0; i < n; i++) arr[i] = s.Transition(i);
+            return arr;
+        }
 
         // === Item / CallStack (value types) ===
 

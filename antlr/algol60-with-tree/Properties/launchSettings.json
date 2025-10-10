@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Test": {
+      "commandName": "Project",
+      "commandLineArgs": "examples/ei.alg -tree",
+      "workingDirectory": "C:\\msys64\\home\\Kenne\\earley-using-antlr-tables-orig\\antlr\\algol60-with-tree"
+    }
+  }
+}
